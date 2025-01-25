@@ -3,6 +3,7 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {siteStructure} from './utils/deskStructure'
+import {RocketLaunch, Monitor} from '@phosphor-icons/react'
 export default defineConfig([
   {
     name: 'production',
@@ -13,6 +14,7 @@ export default defineConfig([
     schema: {
       types: schemaTypes,
     },
+    icon: RocketLaunch,
     basePath: '/prod',
     apiVersion: '2025-01-24',
   },
@@ -25,6 +27,7 @@ export default defineConfig([
     schema: {
       types: schemaTypes,
     },
+    icon: Monitor,
     basePath: '/stage',
     apiVersion: '2025-01-24',
   },
