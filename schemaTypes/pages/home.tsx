@@ -5,10 +5,10 @@ export default defineType({
   type: 'document',
   title: 'Homepage',
   groups: [
-    {name: 'hero', title: 'Page hero'},
-    {name: 'projects', title: 'Featured projects'},
     {name: 'info', title: 'About me' },
-    {name: 'reviews', title: 'Reviews'}
+    {name: 'projects', title: 'Featured projects'},
+    {name: 'reviews', title: 'Reviews'},
+    {name: 'links', title: 'Links' },
   ],
   icon: HomeIcon,
   fields: [
@@ -22,45 +22,55 @@ export default defineType({
       name: 'description',
       title: 'Description',
     }),
-    defineField({
-      name: 'heroBanner',
-      title: 'Page hero banner',
-      type: 'object',
-      group: 'hero',
-      fields: [
-        defineField({
-          type: 'string',
-          name: 'preheader',
-          title: 'Preheader label'
-        }),
-        defineField({
-          type: 'text',
-          name: 'headline',
-          title: 'Headline',
-          validation: rule => rule.required()
-        }),
-        defineField({
-          name: 'logos',
-          title: 'Logos',
-          type: 'array',
-          of: [
-            defineField({
-              name:'logoImage',
-              title: 'Logo image',
-              type: 'image',
-              fields: [
-                defineField({
-                  name: 'alt',
-                  title: 'ALt text',
-                  type: 'string',
-                  validation: rule => rule.required()
-                })
-              ]
-            })
-          ]
-        })
-      ]
-    }),
+
+      defineField({
+        name: 'about',
+        title: 'About me - description',
+        type: 'array',
+        group: 'info',
+        of: [
+          {type: 'block'}
+        ]
+      }),
+    // defineField({
+    //   name: 'heroBanner',
+    //   title: 'Page hero banner',
+    //   type: 'object',
+    //   group: 'hero',
+    //   fields: [
+    //     defineField({
+    //       type: 'string',
+    //       name: 'preheader',
+    //       title: 'Preheader label'
+    //     }),
+    //     defineField({
+    //       type: 'text',
+    //       name: 'headline',
+    //       title: 'Headline',
+    //       validation: rule => rule.required()
+    //     }),
+    //     defineField({
+    //       name: 'logos',
+    //       title: 'Logos',
+    //       type: 'array',
+    //       of: [
+    //         defineField({
+    //           name:'logoImage',
+    //           title: 'Logo image',
+    //           type: 'image',
+    //           fields: [
+    //             defineField({
+    //               name: 'alt',
+    //               title: 'ALt text',
+    //               type: 'string',
+    //               validation: rule => rule.required()
+    //             })
+    //           ]
+    //         })
+    //       ]
+    //     })
+    //   ]
+    // }),
     defineField({
       name: 'portfolio',
       title: 'Featured projects',
@@ -77,15 +87,6 @@ export default defineType({
           })
       ]
     }),
-      defineField({
-        name: 'about',
-        title: 'About me - description',
-        type: 'array',
-        group: 'info',
-        of: [
-          {type: 'block'}
-        ]
-      }),
       defineField({
         name: 'skills',
         title: 'My skills',
@@ -147,6 +148,34 @@ export default defineType({
             type: 'reference',
             to: [
               {type: 'Review'}
+            ]
+          })
+        ]
+      }),
+      defineField({
+        name: 'links',
+        title: 'Links',
+        type: 'array',
+        group: 'links',
+        of: [
+          defineField({
+            name: 'link',
+            title: 'Link',
+            type: 'object',
+            fields: [
+              defineField({
+                name: 'linkText',
+                title: 'Link text',
+                type: 'string',
+              }),
+              defineField({
+                name: 'url',
+                title: 'URL',
+                type: 'url',
+                validation: Rule => Rule.uri({
+                  scheme: ['https', 'mailto', 'tel']
+                })
+              })
             ]
           })
         ]
