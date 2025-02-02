@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 import {HomeIcon} from '@sanity/icons'
+import { Trophy } from '@phosphor-icons/react'
 export default defineType({
   name: 'home',
   type: 'document',
@@ -30,111 +31,6 @@ export default defineType({
         group: 'info',
         of: [
           {type: 'block'}
-        ]
-      }),
-    // defineField({
-    //   name: 'heroBanner',
-    //   title: 'Page hero banner',
-    //   type: 'object',
-    //   group: 'hero',
-    //   fields: [
-    //     defineField({
-    //       type: 'string',
-    //       name: 'preheader',
-    //       title: 'Preheader label'
-    //     }),
-    //     defineField({
-    //       type: 'text',
-    //       name: 'headline',
-    //       title: 'Headline',
-    //       validation: rule => rule.required()
-    //     }),
-    //     defineField({
-    //       name: 'logos',
-    //       title: 'Logos',
-    //       type: 'array',
-    //       of: [
-    //         defineField({
-    //           name:'logoImage',
-    //           title: 'Logo image',
-    //           type: 'image',
-    //           fields: [
-    //             defineField({
-    //               name: 'alt',
-    //               title: 'ALt text',
-    //               type: 'string',
-    //               validation: rule => rule.required()
-    //             })
-    //           ]
-    //         })
-    //       ]
-    //     })
-    //   ]
-    // }),
-    defineField({
-      name: 'portfolio',
-      title: 'Featured projects',
-      type: 'array',
-      group: 'projects',
-      of: [
-        defineField({
-            name: 'projects',
-            title: 'Featured projects',
-            type: 'reference',
-            to: [
-              {type: 'project'}
-            ]
-          })
-      ]
-    }),
-      defineField({
-        name: 'skills',
-        title: 'My skills',
-        type: 'object',
-        group: 'info',
-        fields: [
-          defineField({
-            name: 'title',
-            title: 'Section title',
-            type: 'string'
-          }),
-          defineField({
-            name: 'listOfSkills',
-            title: 'Skills as bullet points',
-            type: 'array',
-            of: [
-              defineField({
-                name: 'bullet',
-                title: 'Add item',
-                type: 'string'
-              })
-            ]
-          })
-        ]
-      }),
-      defineField({
-        name: 'tech',
-        title: 'Tech stack',
-        type: 'object',
-        group: 'info',
-        fields: [
-          defineField({
-            name: 'title',
-            title: 'Section title',
-            type: 'string'
-          }),
-          defineField({
-            name: 'techList',
-            title: 'Tech stack as bullet points',
-            type: 'array',
-            of: [
-              defineField({
-                name: 'bullet',
-                title: 'Add item',
-                type: 'string'
-              })
-            ]
-          })
         ]
       }),
       defineField({
@@ -179,9 +75,74 @@ export default defineType({
             ]
           })
         ]
-      })
+      }),
+      defineField({
+        name:  'experience',
+        title: 'Experience section',
+        type: 'object',
+        icon: Trophy,
+        fields: [
+          defineField({
+              name: 'title',
+              title: 'Section title',
+              type: 'string'
+            }),
+            defineField({
+                name: 'label',
+                title: 'Label',
+                description: 'Text for CV upload link',
+                type: 'string',
+            }), 
+            defineField({
+                name: 'attachment',
+                title: 'Upload resume',
+                type: 'file',
+            }),
+            defineField({
+                name: 'jobs',
+                title: 'Experience',
+                type: 'array',
+                description: 'Employment history',
+                of: [
+                  {type: 'reference',
+                    to: [
+                      
+                      {type: 'Job'}
+                    ]
+                  }
+                ]
+              }),
+            ]
+          }),
+          defineField({
+            name:  'portfolio',
+            title: 'Projects section',
+            type: 'object',
+            fields: [
+              defineField({
+                  name: 'title',
+                  title: 'Section title',
+                  type: 'string',
+                }),
+                defineField({
+                    name: 'projects',
+                    title: 'Projects',
+                    type: 'array',
+                    description: 'Completed projects',
+                    of: [
+                      {type: 'reference',
+                        to: [
+                          
+                          {type: 'Project'}
+                        ]
+                      }
+                    ]
+                  }),
+                ]
+            }),
+        ],
     
-  ],
+
   preview: {
     select: {
       title: 'Homepage',

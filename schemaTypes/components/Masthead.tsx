@@ -12,6 +12,26 @@ export default defineType({
             type: 'string',
             title: 'Title'
         }),
+        defineField({
+          name: 'sectionHeader',
+          title: 'Section header',
+          type: 'reference',
+          to: [
+              {type: 'SectionHeader'},]
+        }),
+      defineField({
+        name: 'sections',
+        title: 'Sections',
+        type: 'array',
+        description: 'Some description',
+        of: [
+          {type: 'reference',
+            to: [
+              {type: 'Job'}
+            ]
+          }
+        ]
+      })
     ],
       preview: {
         select: {

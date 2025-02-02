@@ -1,4 +1,4 @@
-import {Flag, FolderSimplePlus, HandPointing, House, PuzzlePiece, Star} from '@phosphor-icons/react'
+import { FolderSimplePlus, CodeBlock, House, PuzzlePiece, Star} from '@phosphor-icons/react'
 export const siteStructure = (S: any) =>
   S.list()
     .title('Content')
@@ -8,7 +8,7 @@ export const siteStructure = (S: any) =>
         .icon(House)
         .child(S.document().schemaType('home').documentId('home')),
         S.divider(),
-        S.documentTypeListItem('project')
+        S.documentTypeListItem('Project')
                 .title('Projects')
                 .icon(FolderSimplePlus),
         S.divider(),
@@ -19,13 +19,9 @@ export const siteStructure = (S: any) =>
           S.list()
           .title('Components')
           .items([
-            S.documentTypeListItem('Button')
-              .title('Buttons')
-              .icon(HandPointing),
-            S.divider(),
-            S.documentTypeListItem('Masthead')
-              .title('Hero masthead')
-              .icon(Flag),
+            S.documentTypeListItem('Job')
+              .title('Experience')
+              .icon(CodeBlock),
             S.divider(),
             S.documentTypeListItem('Review')
               .title('Reviews')
