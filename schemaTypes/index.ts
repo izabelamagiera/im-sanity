@@ -1,4 +1,4 @@
-import Button from './components/Button'
+
 import Job from './components/Job'
 import Masthead from './components/Masthead'
 import Project from './components/Project'
@@ -14,7 +14,6 @@ export const schemaTypes = [
     project,
 
     // components
-    Button,
     Job,
     Masthead, 
     Project,
