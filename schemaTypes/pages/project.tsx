@@ -60,7 +60,6 @@ export default defineType({
       of: [
         {type: 'reference',
           to: [
-            {type: 'Button'},
             {type: 'Masthead'}
           ]
         }
