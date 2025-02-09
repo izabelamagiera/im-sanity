@@ -4,6 +4,8 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {siteStructure} from './utils/deskStructure'
 import {RocketLaunch, Monitor} from '@phosphor-icons/react'
+
+import {theme} from 'https://themer.sanity.build/api/hues?default=6c6860&primary=d8d2ca;600&transparent=a59d93&positive=43d675;500;lightest:fff&caution=fbd024;500;lightest:fff&critical=lightest:fff;darkest:101112&lightest=ffffff&darkest=2e2e2e'
 export default defineConfig([
   {
     name: 'production',
@@ -17,6 +19,7 @@ export default defineConfig([
     icon: RocketLaunch,
     basePath: '/prod',
     apiVersion: '2025-01-24',
+    theme
   },
   {
     name: 'staging',
@@ -30,5 +33,6 @@ export default defineConfig([
     icon: Monitor,
     basePath: '/stage',
     apiVersion: '2025-01-24',
+    theme
   },
 ])
