@@ -28,6 +28,20 @@ export default defineType({
             validation: rule => rule.required()
         }),
         defineField({
+            name: 'darkModeImage',
+            title: 'Alt dark mode image',
+            type: 'image',
+            description: 'Add image to alternate between dark and light mode',
+            fields: [
+                defineField({
+                    name: 'alt',
+                    title: 'Alt text',
+                    type: 'string',
+                    validation: rule => rule.required()
+                })
+            ],
+        }),
+        defineField({
             name: 'url',
             title: 'Project URL',
             type: 'url',

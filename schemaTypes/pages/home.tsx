@@ -7,9 +7,9 @@ export default defineType({
   title: 'Homepage',
   groups: [
     {name: 'info', title: 'About me' },
-    {name: 'projects', title: 'Featured projects'},
+    {name: 'experience', title: 'Experience' },
+    {name: 'projects', title: 'Projects'},
     {name: 'reviews', title: 'Reviews'},
-    {name: 'links', title: 'Links' },
   ],
   icon: HomeIcon,
   fields: [
@@ -52,7 +52,7 @@ export default defineType({
         name: 'links',
         title: 'Links',
         type: 'array',
-        group: 'links',
+        group: 'info',
         of: [
           defineField({
             name: 'link',
@@ -80,6 +80,7 @@ export default defineType({
         name:  'experience',
         title: 'Experience section',
         type: 'object',
+        group: 'experience',
         icon: Trophy,
         fields: [
           defineField({
@@ -118,6 +119,7 @@ export default defineType({
             name:  'portfolio',
             title: 'Projects section',
             type: 'object',
+        group: 'projects',
             fields: [
               defineField({
                   name: 'title',
